@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>타이틀 변경</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/contents.css">
+</head>
+<body>
+    
+    <button type="button" id="btnSub">팝업호출 테스트</button>
+    <button type="button" id="btnSub2">팝업호출 테스트</button>
+    
+    <!-- HTML 복사 후 안의 제목과 내용 수정 //-->
+    <div id="test-popup" class="white-popup mfp-with-anim mfp-hide">
+        <div class="modal">
+            <header class="hgroup">
+                <h1>제목</h1>
+                <button class="popup-modal-dismiss" type="button">닫기</button>
+            </header>
+            <div class="modal-body">
+                내용
+            </div>
+            <div class="btn_modal">
+                <button type="button" class="btn_01">수정</button>
+                <button type="button" class="btn_02 modal_close">닫기</button>
+            </div>
+        </div>
+    </div>
+    <!--// HTML 복사 후 안의 제목과 내용 수정 -->
+
+    <!-- HTML 복사 후 안의 제목과 내용 수정 //-->
+    <div id="test-popup2" class="white-popup mfp-with-anim mfp-hide">
+        <div class="modal">
+            <header class="hgroup">
+                <h1>제목2</h1>
+                <button class="popup-modal-dismiss" type="button">닫기</button>
+            </header>
+            <div class="modal-body">
+                내용22
+            </div>
+            <div class="btn_modal">
+                <button type="button" class="btn_01">수정</button>
+                <button type="button" class="btn_02 modal_close">닫기</button>
+            </div>
+        </div>
+    </div>
+    <!--// HTML 복사 후 안의 제목과 내용 수정 -->
+
+    
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/lib/jquery.ui.js"></script>
+    <script src="assets/js/lib/jquery.inview.min.js"></script>
+    <script src="assets/js/lib/jquery.counterup.min.js"></script>
+    <script src="assets/js/lib/jquery.fittext.js"></script>
+    <script src="assets/js/lib/jquery.lettering.js"></script>
+    <script src="assets/js/lib/jquery.textillate.js"></script>
+    <script src="assets/js/lib/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/lib/TweenMax.min.js"></script>
+    <script src="assets/js/lib/CSSPlugin.min.js"></script>
+    <script src="assets/js/common.js"></script>
+
+    <script>
+        // 버튼 클릭시 아래의 내용들 테스트 사용
+        // 팝업 하나당 버튼 한개 스크립트 생성
+        // id="test-popup" 로 호출
+        $('#btnSub').on('click',function(e){
+            $.magnificPopup.open({
+              items: {
+                    src: $('#test-popup'),
+                    type: 'inline',
+                    callbacks: {
+                        open: function() {
+                          //callback
+                        },
+                        close: function() {
+                          //callback
+                        }
+                      }
+                }
+            });
+            e.preventDefault()
+        })
+        $('#btnSub2').on('click',function(e){
+            $.magnificPopup.open({
+              items: {
+                    src: $('#test-popup2'),
+                    type: 'inline',
+                    callbacks: {
+                        open: function() {
+                          //callback
+                        },
+                        close: function() {
+                          //callback
+                        }
+                      }
+                }
+            });
+            e.preventDefault()
+        })
+
+        $('.modal_close,.popup-modal-dismiss').on('click',function(){
+            $.magnificPopup.close(); 
+        })
+    </script>
+
+</body>
+</html>

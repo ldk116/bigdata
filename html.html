@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>메뉴현황판 | 올포랜드</title>
+    <!-- 스타일 : 초기화 페이지 공통 -->
+    <link rel="stylesheet" href="http://ucs.all4land.com:11980/GuideLine/assets/css/base.css">
+    <link rel="stylesheet" href="http://ucs.all4land.com:11980/GuideLine/assets/css/common.css">
+    <style>
+
+    .html-progress{
+        max-width:1920px;
+        padding:0 100px;
+    }
+    /* Table */
+    .html-progress-list {border-top:2px solid #444; border-bottom:1px solid #444;}
+    .html-progress-list table{width:100%;}
+    .html-progress-list table th,
+    .html-progress-list table td {height:30px; padding:3px 10px; text-align:center; font-size:14px; border-left:1px solid #eee;}
+    .html-progress-list table th {border-bottom:1px solid #444; font-weight:bold; font-size:16px;}
+    .html-progress-list table td {border-top:1px solid #eee; color:#555;}
+    .html-progress-list table tr:first-child td {border-top:0;}
+    .html-progress-list table tr th:first-child,
+    .html-progress-list table tr td:first-child {border-left:0;}
+    .html-progress-list table tbody + tbody tr:first-child td {border-top:1px solid #ccc;}
+    .html-progress-list table tbody tr th{background:#f9f9f9;border-bottom:0;border-top:0;border-bottom:1px solid #eee;}
+    .html-progress-list table td.col-url,
+    .html-progress-list table td.col-memo,
+    .html-progress-list table td.col-1depth,
+    .html-progress-list table td.col-2depth,
+    .html-progress-list table td.col-3depth,
+    .html-progress-list table td.col-4depth,
+    .html-progress-list table td.col-5depth {text-align:left;}
+    .html-progress-list table td.col-1depth {color:#333; font-weight:bold; font-size:14px;}
+
+    .bar-wrap{position:relative;height:45px;}
+    .bar-wrap+.bar-wrap{margin-top:15px;}
+    .bar-title{width:150px;background:rgba(0,0,0,0.4);float:left;line-height:45px;height:100%;text-align:right;padding-right:15px;color:#fff;font-weight:600;}
+    .bar-gage{position:relative;width:calc(100% - 150px);float:left;line-height:45px;height:100%;background:rgba(0,0,0,0.2);}
+    .mark-value{padding-left:15px;position:relative;z-index:2;color:#fff;}
+    .total-percent{position:absolute;right:15px;top:0;color:#fff;font-weight:600;z-index:2;}
+    .bar-gage .put-layer{content:"";display:block;position:absolute;left:0;top:0;height:45px;width:10%;background:rgba(0,0,0,0.6);}
+    .g-h2{margin-top:100px;}
+    ._url{color:#0089b3;text-decoration:underline;}
+    .page-state span{text-decoration: underline;}
+    </style>
+    <!-- 기본 스크립트 -->
+    <script src="http://ucs.all4land.com:11980/GuideLine/assets/js/jquery-1.12.4.min.js"></script>
+
+    <script>
+        // 대메뉴명 , 완료된페이지수 , 총페이지수
+        function boardCreate(){
+            // var menuLength = [
+            //     ['01_회사소개' , 0 , 0],
+            //     ['02_비지니스' , 0 , 0]
+            // ]
+            function createPanel(name,count,total){
+                var menuHTML = '<div class="bar-wrap">'
+                    +'<div class="bar-title">#'+name+'</div>'
+                    +'<div class="bar-gage">'
+                        +'<div class="mark-value"><strong class="complate-page">'+count+'</strong>/<span class="total-page">'+total+'</span></div>'
+                        +'<div class="total-percent">0%</div>'
+                        +'<div class="put-layer"></div>'
+                    +'</div>'
+                +'</div>';
+                $('.html-progress-panel').append(menuHTML)
+            }
+
+            for(i=0; i<menuLength.length; i++){
+                console.log(i)
+                createPanel(menuLength[i][0],menuLength[i][1],menuLength[i][2]);
+            }
+            $('.mark-value .complate-page').each(function(){
+                var $complatePage = Number($(this).text());
+                var $totalPage = Number($(this).siblings('span').text())
+                var $value = Math.ceil($complatePage/$totalPage * 100)+'%';
+                $(this).parent().siblings('.total-percent').text($value)
+                $(this).parent().siblings('.put-layer').css('width' , $value)
+            })
+        };
+
+        function highlightState(){
+            $('.page-state').each(function(){
+                var $nowState = $(this).text()
+                var a;
+
+                if($nowState == '진행'){
+                    a = '398439'
+                } else if($nowState == '수정'){
+                    a = 'f0ad4e'
+                } else if($nowState == '완료'){
+                    a = '0089b3'
+                } else if($nowState == '삭제'){
+                    a = 'ff0000'
+                }
+                $(this).html('<span style="color:#'+a+'">'+$nowState+'</span>')
+            })
+        }
+
+        $(document).ready(function(){
+            boardCreate()
+            highlightState()
+        })
+    </script>
+    <!--[if lt IE 9]>
+  	<script src="assets/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div id="guideFrame">
+        <div class="html-progress">
+            <!-- <h2 class="g-h2">진행률<small>(메뉴명 / 완료 페이지수 // 총 페이지수 입력시 자동생성)</small></h2>
+            <div class="html-progress-panel"></div> -->
+
+            <h2 class="g-h2">메뉴목록</h2>
+            <div class="html-progress-list">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="col-1depth">1Depth</th>
+                            <th scope="col" class="col-2depth">2Depth</th>
+                            <th scope="col" class="col-3depth">3Depth</th>
+                            <th scope="col" class="col-point">유형</th>
+                            <th scope="col">URL</th>
+                            <th scope="col" class="col-date">날짜</th>
+                            <th scope="col">상태</th>
+                            <th scope="col">담당자</th>
+                            <th scope="col">비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>팝업샘플</th>
+                            <td>팝업샘플</td>
+                            <td></td>
+                            <td>목록</td>
+                            <td><a href="sample.html" target="_blank" class="_url">sample.html</a></td>
+                            <td>2020.02.04</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>통합검색</th>
+                            <td>결과</td>
+                            <td></td>
+                            <td>목록</td>
+                            <td><a href="search_result.html" target="_blank" class="_url">search_result.html</a></td>
+                            <td>2020.02.04</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">해양수산정보 검색</th>
+                            <td>데이터 소재 검색</td>
+                            <td></td>
+                            <td>목록</td>
+                            <td><a href="pages/search/search1.html" target="_blank" class="_url">pages/search/search1.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>데이터 소재 검색</td>
+                            <td></td>
+                            <td>상세</td>
+                            <td><a href="pages/search/view.html" target="_blank" class="_url">pages/search/view.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th rowspan="2">빅데이터 분석</th>
+                            <td rowspan="2">뉴스&소셜 이슈분석</td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="pages/analysis/news&social.html" target="_blank" class="_url">pages/search/news&social.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>뉴스&소셜 키워드 상세 열림 화면</td>
+                            <td></td>
+                            <td><a href="pages/analysis/news&social2.html" target="_blank" class="_url">pages/search/news&social2.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        
+                        <tr>
+                            <th rowspan="9">고객지원</td>
+                            <td rowspan="3">공지사항</td>
+                            <td></td>
+                            <td>목록</td>
+                            <td><a href="pages/support/notice-list.html" target="_blank" class="_url">pages/support/notice-list.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>상세</td>
+                            <td><a href="pages/support/notice-view.html" target="_blank" class="_url">pages/support/notice-view.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>쓰기</td>
+                            <td><a href="pages/support/notice-write.html" target="_blank" class="_url">pages/support/notice-write.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">자료실</td>
+                            <td></td>
+                            <td>목록</td>
+                            <td><a href="pages/support/lib-list.html" target="_blank" class="_url">pages/support/lib-list.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>상세</td>
+                            <td><a href="pages/support/lib-view.html" target="_blank" class="_url">pages/support/lib-view.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>쓰기</td>
+                            <td><a href="pages/support/lib-write.html" target="_blank" class="_url">pages/support/lib-write.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">요청사항접수</td>
+                            <td></td>
+                            <td>목록</td>
+                            <td><a href="pages/support/request-list.html" target="_blank" class="_url">pages/support/request-list.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>상세</td>
+                            <td><a href="pages/support/request-view.html" target="_blank" class="_url">pages/support/request-view.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>쓰기</td>
+                            <td><a href="pages/support/request-write.html" target="_blank" class="_url">pages/support/request-write.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th rowspan="4">마이메뉴</th>
+                            <td>나의 맵문서</td>
+                            <td></td>
+                            <td>목록</td>
+                            <td><a href="pages/mymenu/mydoc.html" target="_blank" class="_url">pages/mymenu/mydoc.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>나의 갤러리</td>
+                            <td></td>
+                            <td>목록</td>
+                            <td><a href="pages/mymenu/mygallery.html" target="_blank" class="_url">pages/mymenu/mygallery.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>나의 맵문서&나의 갤러리 쓰기</td>
+                            <td></td>
+                            <td>쓰기</td>
+                            <td><a href="pages/mymenu/write.html" target="_blank" class="_url">pages/mymenu/write.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>회원정보변경</td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="pages/mymenu/myinfoChange.html" target="_blank" class="_url">pages/mymenu/myinfoChange.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th rowspan="7">회원</th>
+                            <td>GPKI 로그인</td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="pages/member/GPKI_login.html" target="_blank" class="_url">pages/member/GPKI_login.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>로그인</td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="pages/member/login.html" target="_blank" class="_url">pages/member/login.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="3">회원가입</td>
+                            <td>약관동의</td>
+                            <td></td>
+                            <td><a href="pages/member/join-terms.html" target="_blank" class="_url">pages/member/join-terms.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>회원정보 입력</td>
+                            <td></td>
+                            <td><a href="pages/member/join-regist.html" target="_blank" class="_url">pages/member/join-regist.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>신청완료</td>
+                            <td></td>
+                            <td><a href="pages/member/join-result.html" target="_blank" class="_url">pages/member/join-result.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>아이디 찾기</td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="pages/member/ID-find.html" target="_blank" class="_url">pages/member/ID-find.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>비밀번호 찾기</td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="pages/member/PW-find.html" target="_blank" class="_url">pages/member/PW-find.html</a></td>
+                            <td>2020.02.03</td>
+                            <td class="page-state">완료</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

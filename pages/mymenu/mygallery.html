@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/contents.css">
+</head>
+    <div class="skip_navi">
+    <a href="#gnb">메뉴 바로가기</a>
+    <a href="#contents">주요 내용바로가기</a>
+    <a href="#footer">하단 내용바로가기</a>
+</div>
+
+<!-- s: header -->
+<header id="header">
+    <div class="header_top">
+        <div class="container">
+            <h1><a href="#" title="홈으로 바로가기"><span class="sr_only">해양수산부 해양수산 빅데이터플랫폼</span></a></h1>
+            <div class="utilbar">
+                <ul class="ut_menu">
+                   <li class="login-btn">
+                       <a href="#" class="login util_a">로그인</a>
+                        <div class="login-hidden">
+                            <ul>
+                                <li><a href="#">일반</a></li>
+                                <li><a href="#">GPKI</a></li>
+                            </ul>
+                        </div>
+                   </li>
+                   <li>
+                        <a href="#" class="link_member util_a">회원가입</a>       
+                   </li>
+                </ul>              
+
+                <div class="search_form">
+                    <!-- <input type="text" id="top_keyword" title="검색입력" placeholder="해양공간통합관리" title="검색어 입력"> -->
+                    <a href="#">해양공간통합관리</a>
+                    <button type="button" title="상단통합검색" id="btnSearch"><span class="sr_only">검색</span></button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav id="nav">
+        <ul id="gnb">
+            <li class="drop_m1 fir"><a href="#">서비스 소개</a>
+                <div class="dropmenu">
+                    <ul>
+                        <li><a href="#">빅데이터플랫폼이란</a></li>
+                        <li><a href="#">빅데이터플랫폼 비하인드</a></li>
+                        <li><a href="#">서비스활용가이드</a></li>
+                    </ul>   
+                </div>
+            </li>
+            <li class="drop_m1"><a href="#">해양수산정보 검색</a>
+                <div class="dropmenu">
+                    <ul>
+                        <li><a href="#">데이터ㆍ소재 검색</a></li>
+                        <li><a href="#">데이터ㆍ계보 검색</a></li>
+                        <li><a href="#">데이터ㆍ맵 검색</a></li>
+                        <li><a href="#">인기ㆍ검색어 보기</a></li>
+                    </ul>   
+                </div>
+            </li>
+            <li class="drop_m1"><a href="#">빅데이터 분석</a>
+                <div class="dropmenu">
+                    <ul class="half">
+                        <li><a href="#">빅데이터 공간분석</a></li>
+                        <li><a href="#">빅데이터 흐름분석</a></li>
+                        <li><a href="#">뉴스&소셜 이슈분석</a></li>
+                    </ul>
+                    <ul class="half">
+                        <li><a href="#">공간분석 공유ㆍ갤러리</a></li>
+                        <li><a href="#">공간분석 모델ㆍ갤러리</a></li>
+                        <li><a href="#">공간분석 융합ㆍ갤러리</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drop_m1"><a href="#">해양공간종합지도</a>
+                <div class="dropmenu">
+                    <ul>
+                        <li><a href="#">해양공간종합지도소개</a></li>
+                        <li><a href="#">해양공간종합지도</a></li>
+                        <li><a href="#">해양공간정보 Info</a></li>
+                    </ul>   
+                </div>
+            </li>
+            <li class="drop_m1"><a href="#">AI 해양모델</a>
+                <div class="dropmenu">
+                    <ul>
+                        <li><a href="#">시공간ㆍ연속 해양모델</a></li>
+                        <li><a href="#">24시간 수온 예측모델</a></li>
+                        <li><a href="#">48시간 수온 예측모델</a></li>
+                        <li><a href="#">관측정보 이상패턴 감지</a></li>
+                    </ul>   
+                </div>
+            </li>
+            <li class="drop_m1"><a href="#">고객지원</a>
+                <div class="dropmenu">
+                    <ul>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">자료실</a></li>
+                        <li><a href="#">요청사항접수</a></li>
+                    </ul>   
+                </div>
+            </li>
+        </ul>
+        <div class="gnb_bg"></div>
+    </nav>
+</header>
+<!-- e: header -->
+<div class="black_dimmed"></div>
+
+
+<!-- s: 통합검색 -->
+<article id="desktopSearch">
+    <header>
+        <div class="container">
+            <h1 title="해양수산부 해양수산 빅데이터 플랫폼 로고">해양수산부 해양수산 빅데이터 플랫폼</h1>
+            <button type="button" class="search_close" title="검색창닫기">버튼</button>
+        </div>
+    </header>
+    <section class="content">
+        <div class="cont_head">
+            <b></b>
+            <p>어떤 해양공간정보를 찾으세요?</p>
+        </div>
+
+        <div class="search_form comm_search">
+            <label for="common_keyword" class="sr_only">검색</label>
+            <input type="text" id="common_keyword" title="검색어 입력" placeholder="찾으시는 해양공간정보를 입력해주세요">
+            <div class="recommend">
+                <div class="wrap_cnt">
+                    <button type="button" class="btn">추천</button>
+                    <ol class="list">
+                        <li><a href="#">4차 산업혁명</a></li>
+                        <li><a href="#">산업화</a></li>
+                        <li><a href="#">혁신 기술</a></li>
+                        <li><a href="#">통계</a></li>
+                        <li><a href="#">과학</a></li>
+                        <li><a href="#">산업 법률</a></li>
+                        <li><a href="#">안철수</a></li>
+                        <li><a href="#">미래지향기술</a></li>
+                        <li><a href="#">인공지능</a></li>
+                        <li><a href="#">자율주행</a></li>
+                    </ol>
+                </div>
+            </div>
+            <button type="button" title="검색" id="btncommSbumit">검색버튼</button>
+        </div>
+
+        <div class="month_keyword">
+            <div class="wrap_cnt">
+            <dl>
+                <dt>이달의 키워드</dt>
+                <dd>
+                    <button type="button"># 해양산업</button>
+                    <button type="button"># 무인도서</button>
+                    <button type="button"># 해양과학조사</button>
+                    <button type="button"># 극지</button>
+                    <button type="button"># 해양플랜트</button>
+                    <button type="button"># 해양장비</button>
+                    <button type="button"># 해양에너지</button>
+                    <button type="button"># 통계</button>
+                    <button type="button"># 선박향해안전</button>
+                    <button type="button"># 해양재난안전</button>
+                </dd>
+            </dl>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="dimmed"></div>
+</article>
+<!-- e: 통합검색 -->
+
+    <!-- s: sublnb -->
+    <div class="sublnb">
+        <h2 class="sr_only">안내메뉴</h2>
+        <nav class="navition">
+            <ol class="container">
+                <li class="home"><a href="#" title="홈바로가기"><span class="sr_only">홈</span></a></li>
+                <li class="dropmenu">
+    <a href="#" class="toggle-dropmenu" role="button">나의 맵</a>
+    <div>
+        <ul>
+            <li><a href="#">회원정보변경</a></li>
+            <li><a href="#">나의 맵</a></li>
+        </ul>
+    </div>
+</li>
+            </ol>
+        </nav>
+    </div>
+    <!-- e: sublnb -->
+    
+    <!-- s: contentsWraps -->
+    <section id="contentsWraps">
+        
+<div class="subtop">
+    <div class="container">
+        <div class="fl_l">
+            <h1 class="page_title">나의 맵 <em>공간지도 기반의 분석 시각화를 위한 사용자별 맵기반의 문서</em></h1>
+        </div>
+        <div class="fl_r">
+            <ul class="share_list">
+                <li><a href="#" class="share_1" target="_blank" title="페이스북 공유하기">페이스북</a></li>
+                <li><a href="#" class="share_2" target="_blank" title="카카오톡 공유하기">카카오톡></a></li>
+                <li><a href="#" class="share_3" target="_blank" title="네이버 공유하기">네이버</a></li>
+                <li><a href="#" class="share_4" target="_blank" title="구글 공유하기">구글</a></li>
+                <li><a href="#" class="share_5" title="출력하기">출력하기</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+        <!-- s: #content -->
+        <article id="content">
+            <h3 class="sr_only">본문시작</h3>
+
+            <section class="section">
+                <div class="container mydoc">
+
+                    <nav class="tablist mb40">
+                        <ul>
+                            <li><a href="#">나의 맵문서</a></li>
+                            <li class="on"><a href="#">나의 갤러리</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- s: skin_board -->
+                    <div class="skin_board">
+                        
+                        <div class="skin_board_top">
+                            <p class="total">게시글 수  <b>12</b>개</p>
+
+                            <div class="search_area" style="width:315px;">
+                                <input type="text" placeholder="찾으시는 데이터명을 입력해주세요." title="검색어입력" class="v2">
+                                <button type="button" title="검색" id="btnSubmit"><span class="sr_only">검색버튼</span></button>
+                            </div>
+                        </div>
+                        
+                        <div class="skin_gallery">
+                            <ul>
+                                <li class="gall_list">
+                                    <div class="wrap_cnt">
+                                        <figure>
+                                            <p class="thumb"><a href="#"></a></p>
+                                            <figcaption><a href="#">나의 맵문서</a></figcaption>
+                                        </figure>
+                                    </div>
+                                </li>
+                                <li class="gall_list">
+                                    <div class="wrap_cnt">
+                                        <figure>
+                                            <p class="thumb"><a href="#"></a></p>
+                                            <figcaption><a href="#">나의 맵문서</a></figcaption>
+                                        </figure>
+                                    </div>
+                                </li>
+                                <li class="gall_list">
+                                    <div class="wrap_cnt">
+                                        <figure>
+                                            <p class="thumb"><a href="#"></a></p>
+                                            <figcaption><a href="#">나의 맵문서</a></figcaption>
+                                        </figure>
+                                    </div>
+                                </li>
+                                <li class="gall_list">
+                                    <div class="wrap_cnt">
+                                        <figure>
+                                            <p class="thumb"><a href="#"></a></p>
+                                            <figcaption><a href="#">나의 맵문서</a></figcaption>
+                                        </figure>
+                                    </div>
+                                </li>
+                                <li class="gall_list">
+                                    <div class="wrap_cnt">
+                                        <figure>
+                                            <p class="thumb"><a href="#"></a></p>
+                                            <figcaption><a href="#">나의 맵문서</a></figcaption>
+                                        </figure>
+                                    </div>
+                                </li>
+                                <li class="gall_list">
+                                    <div class="wrap_cnt">
+                                        <figure>
+                                            <p class="thumb"><a href="#"></a></p>
+                                            <figcaption><a href="#">나의 맵문서</a></figcaption>
+                                        </figure>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <nav class="paging">
+                            <a href="#" class="fir" title="맨처음"></a>
+                            <a href="#" class="prev" title="이전페이지"></a>
+                            <a href="#">1 <span class="sr_only">페이지</span></a>
+                            <strong class="current">2 <span class="sr_only">현재 페이지</span></strong>
+                            <a href="#">3 <span class="sr_only">페이지</span></a>
+                            <a href="#">4 <span class="sr_only">페이지</span></a>
+                            <a href="#">5 <span class="sr_only">페이지</span></a>
+                            <a href="#">6 <span class="sr_only">페이지</span></a>
+                            <a href="#">7 <span class="sr_only">페이지</span></a>
+                            <a href="#">8 <span class="sr_only">페이지</span></a>
+                            <a href="#">9 <span class="sr_only">페이지</span></a>
+                            <a href="#">10 <span class="sr_only">페이지</span></a>
+                            <a href="#" class="next" title="다음페이지"></a>
+                            <a href="#" class="end" title="맨끝"></a>
+                        </nav>
+                    </div>
+                    <!-- e: skin_board -->
+
+                    <div class="btn_wrap ta_r">
+                        <a href="#" class="btn_orange">새 맵문서 +</a>
+                    </div>
+                   
+                </div>
+            </section>
+            
+        </article>
+        <!-- e: #content -->
+    </section>
+    <!-- e: contentsWraps -->
+
+    <!-- s: footer -->
+<footer id="footer" role="contentinfo">
+    <h2 class="sr_only">사이트 정보</h2>
+    <div class="container">
+        <ul class="foot_link">
+            <li><a href="#" class="manual_link">사용자도움말</a></li>
+            <li><a href="#">사이트맵</a></li>
+            <li><a href="#">개인정보처리방침</a></li>
+        </ul>
+
+        <address class="address">
+            (우)30110 세종특별자치시 다솜2로 94(어진동) 정부세종청사 5동 해양수산부
+            <p class="copyright">Copyright (C) Ministry of Oceans and Fisheries. All rights reserved.</p>
+        </address>
+
+        <div class="foot_mark"><span class="sr_only">해양수산 빅데이터 플랫폼</span></div>
+    </div>
+</footer>
+<!-- e: footer -->
+    
+
+    <script src="../../assets/js/jquery-3.2.1.min.js"></script>
+<script src="../../assets/js/lib/jquery.inview.min.js"></script>
+<script src="../../assets/js/lib/jquery.magnific-popup.min.js"></script>
+<script src="../../assets/js/lib/TweenMax.min.js"></script>
+<script src="../../assets/js/lib/CSSPlugin.min.js"></script>
+<script src="../../assets/js/lib/jquery.ui.js"></script>
+<script src="../../assets/js/lib/moment.min.js"></script>
+<script src="../../assets/js/lib/daterangepicker.js"></script>
+<script src="../../assets/js/common.js"></script>
+</body>
+</html>
