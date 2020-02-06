@@ -89,6 +89,8 @@ $(document).on('click', '.diff_modal .btnClose', function(e) {
 });
 
 
+
+
 // select design;
 function selectCustom(){
 	var x, i, j, selElmnt, a, b, c;
@@ -224,3 +226,16 @@ $('.datepicker').datepicker({
     // buttonImageOnly: true,
     // buttonText: "Select date"
 });
+
+
+
+/*강상환 추가 시작*/
+
+/*탭*/
+$('.meta-tabs li').click(function() {
+   $tar = $($(this).data('tab'))
+
+    $(this).addClass('current').siblings('li').removeClass('current');
+    $tar.addClass('current').siblings('.meta_tab-content>div').removeClass('current');
+})
+/*강상환 추가 끝*/

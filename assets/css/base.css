@@ -5,6 +5,8 @@
 @import url(./vendors/magnific-popup.css);
 @import url(./vendors/animate.css);
 @import url(./vendors/daterangepicker.css);
+@import url(./vendors/swiper.min.css);
+@import url(./vendors/jquery.timepicker.css);
 * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 body { letter-spacing: -0.075em; }
@@ -524,6 +526,14 @@ button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focus
 .drag-box .drag-file_com { min-height: 100px; line-height: 100px; font-size: 14px; padding-left: 80px; background: url(../img/sub/drag_file-bg.png) no-repeat 180px center; }
 
 .drag-box .drag-file_btn { position: absolute; top: 50%; transform: translatey(-50%); right: 20px; width: 50px; height: 50px; border: 1px solid #434343; background: #666666; color: #fff; font-size: 12px; text-align: center; }
+
+.meta-tabs { overflow: hidden; }
+
+.meta-tabs li { cursor: pointer; }
+
+.meta_tab-content .meta_tab-con { display: none; }
+
+.meta_tab-content .meta_tab-con.current { display: inherit; }
 
 /* 강상환 추가 끝 */
 .table { width: 100%; }

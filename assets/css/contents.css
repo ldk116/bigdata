@@ -165,6 +165,50 @@
 
 .more_button:before { content: ""; display: block; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: #d2d2d2; z-index: 1; }
 
+.popular_calendar .calendar_hr { position: relative; border-bottom: 1px solid #d2d2d2; padding-bottom: 30px; margin-bottom: 40px; }
+
+.popular_calendar .calendar_hr h3 { font-size: 22px; font-weight: 500; }
+
+.popular_calendar .calendar_hr .sort_content { position: absolute; padding: 0; right: 0; top: 0; }
+
+.popular_calendar .calendar_hr .sort_content .time_pick { position: relative; display: inline-block; margin-left: 4px; }
+
+.popular_calendar .calendar_hr .sort_content .time_pick .time-control { width: 150px; height: 40px; border: 1px solid #dcdbdb; color: #969897; padding-left: 35px; }
+
+.popular_calendar .calendar_hr .sort_content .time_pick:after { content: ''; display: block; position: absolute; top: 12px; right: 15px; width: 17px; height: 17px; background: url(../img/common/icon_time.png) no-repeat; }
+
+.ui-timepicker-container { z-index: 1 !important; }
+
+.ui-timepicker-container .ui-corner-all { font-size: 15px; color: #969897; }
+
+.popular_swiper-list { width: 1000px; margin: auto; }
+
+.popular_swiper-list .popular_swiper .swiper-wrapper .swiper-slide { border: 1px solid #d2d2d2; }
+
+.popular_swiper-list .popular_swiper .swiper-wrapper .swiper-slide .popular_head { background: #d2d2d2; color: #222222; text-align: center; font-size: 18px; height: 60px; line-height: 60px; }
+
+.popular_swiper-list .popular_swiper .swiper-wrapper .swiper-slide .popular_body { counter-reset: mega-step; padding: 20px; background: #fff; }
+
+.popular_swiper-list .popular_swiper .swiper-wrapper .swiper-slide .popular_body li { list-style: none; position: relative; padding-left: 45px; counter-increment: mega-step; text-align: left; }
+
+.popular_swiper-list .popular_swiper .swiper-wrapper .swiper-slide .popular_body li + li { margin-top: 15px; }
+
+.popular_swiper-list .popular_swiper .swiper-wrapper .swiper-slide .popular_body li:before { display: block; content: counter(mega-step); position: absolute; left: 0; left: 0; width: 24px; height: 24px; text-align: center; line-height: 22px; border: 1px solid #d2d2d2; color: #b5b5b5; font-size: 14px; border-radius: 3px; }
+
+.popular_swiper-list .popular_swiper .swiper-wrapper .swiper-slide .popular_body li:first-child:before { color: #fff; background: #099dbb; border-color: #099dbb; }
+
+.popular_swiper-list .popular_swiper .swiper-wrapper .swiper-slide .popular_body li a { color: #000; font-size: 18px; font-weight: 300; line-height: 24px; }
+
+.popular_swiper-list .swiper-button-prev { background: url(../img/search/prev_arrow.png); width: 40px; height: 80px; z-index: 1; }
+
+.popular_swiper-list .swiper-button-prev:after { display: none; }
+
+.popular_swiper-list .swiper-button-next { background: url(../img/search/next_arrow.png); width: 40px; height: 80px; z-index: 1; }
+
+.popular_swiper-list .swiper-button-next:after { display: none; }
+
+.popular_swiper-item { background: #fff; }
+
 .date_item .lbl_datepicker { display: inline-block; cursor: pointer; background: #ffffff url(../img/common/icon_cal.png) no-repeat 95% 50%; border: 1px solid #dcdbdb; height: 40px; }
 
 .date_item .lbl_datepicker input[type="text"] { background: transparent; border: 0; outline: none; display: block; height: 100%; width: 100%; text-align: center; font-size: 14px; }
